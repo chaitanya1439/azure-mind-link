@@ -24,7 +24,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className }) => {
 
   return (
     <div className={cn(
-      "h-full bg-gradient-sidebar flex flex-col border-r border-border/50",
+      "h-full flex flex-col border-r border-white/20",
       className
     )}>
       {/* Header */}
