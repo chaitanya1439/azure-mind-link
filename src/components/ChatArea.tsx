@@ -33,7 +33,7 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ className }) => {
     return (
       <div className={cn("flex flex-col h-full", className)}>
         {/* Empty State */}
-        <div className="flex-1 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+        <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-secondary/5">
           <div className="text-center max-w-md mx-auto p-8">
             <div className="w-16 h-16 mx-auto mb-6 bg-gradient-main rounded-full flex items-center justify-center">
               <Bot className="w-8 h-8 text-white" />
@@ -66,9 +66,9 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ className }) => {
   }
 
   return (
-    <div className={cn("flex flex-col h-full bg-white/10 backdrop-blur-sm rounded-xl border border-white/20", className)}>
+    <div className={cn("flex flex-col h-full", className)}>
       {/* Chat Header */}
-      <div className="flex-shrink-0 border-b border-white/20 bg-white/5 backdrop-blur-sm rounded-t-xl">
+      <div className="flex-shrink-0 border-b border-border/50 bg-background/80 backdrop-blur-sm">
         <div className="p-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gradient-main flex items-center justify-center">
@@ -93,7 +93,7 @@ export const ChatArea: React.FC<ChatAreaProps> = ({ className }) => {
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto custom-scrollbar bg-white/5">
+      <div className="flex-1 overflow-y-auto custom-scrollbar bg-chat-background/30">
         <div className="max-w-4xl mx-auto px-4 py-6">
           {activeConversation.messages.length === 0 ? (
             /* Empty conversation state */
