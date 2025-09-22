@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ChatGPT Agentic Clone Design System - Green-Blue Gradient Theme */
 
 @layer base {
   :root {
+    /* Core Brand Colors - Green-Blue Gradient Palette */
+    --primary: 190 81% 67%; /* Cyan-blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 190 81% 47%;
+    
+    --secondary: 166 76% 55%; /* Emerald-green */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-dark: 166 76% 35%;
+    
+    /* Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(166 76% 55%), hsl(190 81% 67%));
+    --gradient-dark: linear-gradient(135deg, hsl(166 76% 35%), hsl(190 81% 47%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(166 76% 35%), hsl(190 81% 35%));
+    --gradient-chat: linear-gradient(135deg, hsl(190 81% 67%), hsl(166 76% 55%));
+    
+    /* Background System */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 27%;
 
+    /* Chat Specific Colors */
+    --chat-user: 190 81% 67%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-agent: 0 0% 100%;
+    --chat-agent-foreground: 215 25% 27%;
+    --chat-background: 210 20% 98%;
+    
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 215 25% 27%;
+    
+    /* Interactive Elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 215 25% 27%;
+    
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 55%;
+    
+    --accent: 190 81% 95%;
+    --accent-foreground: 215 25% 27%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -56,26 +73,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Dark Mode - Enhanced Green-Blue Theme */
+    --background: 215 25% 12%;
+    --foreground: 0 0% 95%;
+    
+    /* Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(166 76% 25%), hsl(190 81% 35%));
+    --gradient-dark: linear-gradient(135deg, hsl(166 76% 15%), hsl(190 81% 25%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(166 76% 15%), hsl(190 81% 20%));
+    --gradient-chat: linear-gradient(135deg, hsl(190 81% 35%), hsl(166 76% 25%));
+    
+    /* Chat Colors - Dark */
+    --chat-user: 190 81% 55%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-agent: 215 25% 18%;
+    --chat-agent-foreground: 0 0% 95%;
+    --chat-background: 215 25% 15%;
+    
+    --card: 215 25% 18%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 215 25% 18%;
+    --popover-foreground: 0 0% 95%;
+    
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 65%;
+    
+    --accent: 190 81% 25%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -100,6 +125,120 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-hidden;
+  }
+  
+  /* Custom Scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer components {
+  /* Gradient Backgrounds */
+  .bg-gradient-main {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-sidebar {
+    background: var(--gradient-sidebar);
+  }
+  
+  .bg-gradient-chat {
+    background: var(--gradient-chat);
+  }
+  
+  /* Chat Bubbles */
+  .chat-bubble-user {
+    @apply bg-gradient-chat text-white rounded-2xl rounded-br-md px-4 py-3 shadow-lg max-w-[80%] ml-auto;
+  }
+  
+  .chat-bubble-agent {
+    @apply bg-card text-card-foreground rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border-l-4 border-primary max-w-[85%] mr-auto;
+  }
+  
+  /* Animated Gradient Border */
+  .gradient-border {
+    @apply relative overflow-hidden rounded-lg;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-main p-[2px] -z-10;
+    border-radius: inherit;
+  }
+  
+  .gradient-border > * {
+    @apply bg-background rounded-lg relative z-10;
+  }
+}
+
+@layer utilities {
+  /* Animation Classes */
+  .animate-typing {
+    animation: typing 0.5s steps(1) infinite;
+  }
+  
+  @keyframes typing {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.2s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-10px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  /* Text utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }

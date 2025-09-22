@@ -22,10 +22,19 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          dark: "hsl(var(--secondary-dark))",
+        },
+        chat: {
+          user: "hsl(var(--chat-user))",
+          "user-foreground": "hsl(var(--chat-user-foreground))",
+          agent: "hsl(var(--chat-agent))",
+          "agent-foreground": "hsl(var(--chat-agent-foreground))",
+          background: "hsl(var(--chat-background))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -57,6 +66,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        "gradient-main": "var(--gradient-primary)",
+        "gradient-sidebar": "var(--gradient-sidebar)",
+        "gradient-chat": "var(--gradient-chat)",
+        "gradient-dark": "var(--gradient-dark)",
       },
       borderRadius: {
         lg: "var(--radius)",
